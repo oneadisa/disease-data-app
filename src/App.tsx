@@ -1,9 +1,16 @@
 import  { Fragment, useEffect } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { getAllCases, clearErrors } from "./features/cases/casesSlice";
+import { getAllCases, clearErrors } from './features/cases/casesSlice';
 import { useAppSelector, useAppDispatch } from './app/hooks'
 import Loader from "./components/Loader/Loader";
+import StateCases from "./components/StateCases/stateCases"
+import {State} from './features/cases/casesSlice'
+
+
+
+export interface StateProp {
+  asset: State;
+}
 function App() {
   const dispatch = useAppDispatch();
 
@@ -18,29 +25,31 @@ function App() {
     dispatch(getAllCases());
   }, [dispatch, error]);
 
+
   return (
     <div className="App">
       <Fragment>
         {loading ? (
-        <Loader />
-      ) : (
-        <Fragment>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1>{data.totalSamplesTested}</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        </Fragment>)}
+          <Loader />
+        ) : (
+          <Fragment>
+            
+              <div className="body">
+                <h1 className="title">COVID NIGERIA</h1>
+                <h4 className='tested' >Total Samples Tested: {data.totalSamplesTested}</h4>
+                <h4 className='confirmed'>Confirmed Cases: {data.totalConfirmedCases}</h4>
+                <h4 className='admission'>Active Cases: {data.totalActiveCases}</h4>
+                <h4 className='discharged'>Discharged: {data.discharged}</h4>
+                <h4 className='death'>Deaths: {data.death }</h4>
+                <div className="stateContainer">
+                  {data.states?.map((state: State) => (
+                    <StateCases key={state._id} state={state} />
+                  ))}
+                </div>
+              </div>
+          
+          </Fragment>
+        )}
       </Fragment>
     </div>
   );

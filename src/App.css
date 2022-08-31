@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&family=Poppins&display=swap');
+
 .App {
   text-align: center;
 }
@@ -13,26 +15,51 @@
   }
 }
 
-.App-header {
+.body {
   background-color: #282c34;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(231, 230, 230);
+  padding: 7vw;
+  font-family: 'Nunito', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.confirmed {
+  color: #fbe961;
+}
+.tested{
+  color: rgb(238, 235, 193)
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.stateContainer {
+  margin-top: 20px;
+  display : flex;
+  height : auto;
+  padding: 5px;
+   flex-direction : row;
+   gap : 5vw;
+    justify-content: space-around;
+     align-content: space-around;
+    flex-wrap: wrap;
+}
+
+.discharged {
+
+  color: #6fd791;
+}
+
+.death {
+  color: #bc3131;
+}
+
+.confirmed{
+    color: #31bca7;
+}
+
+.admission{
+    color: #d8c40e;
 }

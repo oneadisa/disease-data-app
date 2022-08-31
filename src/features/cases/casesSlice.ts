@@ -29,7 +29,8 @@ export type ReportData = {
 };
 
 interface ReportPayload {
-  payload: ReportData | string;
+  payload: ReportData 
+  // | string;
 }
 
 export type Error = {
@@ -39,7 +40,15 @@ export type CasesState = {
   loading: boolean;
   error: ReportData | string;
   // error: Error | boolean;
-  data: ReportData | {};
+  data: ReportData 
+    | {
+        totalSamplesTested: null,
+        totalConfirmedCases: null,
+        totalActiveCases: null,
+        discharged: null,
+        death: null,
+        states:  null;
+      };
   // cases: State;
 };
 
@@ -48,12 +57,12 @@ const initialState: CasesState = {
   loading: true,
   error: 'false',
   data: {
-  // totalSamplesTested: null,
-  // totalConfirmedCases: null,
-  // totalActiveCases: null,
-  // discharged: null,
-  // death: null,
-  // states: null
+  totalSamplesTested: null,
+  totalConfirmedCases: null,
+  totalActiveCases: null,
+  discharged: null,
+  death: null,
+  states: null
 }
 };
 
@@ -87,13 +96,13 @@ export const getAllCases =
       const { data } = await axios.get(
         "https://covidnigeria.herokuapp.com/api"
       );
-
-      dispatch(getCases(data))
+        console.log(data.data)
+      dispatch(getCases(data.data))
       // dispatch({ type: ALL_CASES_SUCCESS, payload: data });
     } catch (error) {
       if (error instanceof Error) {
         console.log(error.message);
-        dispatch(getCases(error.message));
+        // dispatch(getCases(error.message));
         //  dispatch({
         //    type: ALL_CASES_FAIL,
         //    payload: error.message,
@@ -106,7 +115,7 @@ export const getAllCases =
 
   // Clearing Errors
 export const clearErrors = () => async (dispatch: (arg0: { type: any; }) => void) => {
-  dispatch(getCases('false'));
+  // dispatch(getCases('false'));
 };
 export const selectCases = (state: RootState) => state.cases;
 

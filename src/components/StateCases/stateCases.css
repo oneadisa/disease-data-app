@@ -1,0 +1,55 @@
+.single {
+  padding: 2px 16px;
+  background: #fff;
+  display: block;
+  margin: 20px 10px;
+  border-left: 8px solid #fff;
+}
+.single:hover {
+  border-left: 8px solid #4979ff;
+}
+
+.discharged {
+
+  color: #6fd791;
+}
+
+.death {
+  color: #bc3131;
+}
+
+.confirmed{
+    color: #31bca7;
+}
+
+.admission{
+    color: #d8c40e;
+}
+
+/* .stateBox {
+  width: 300px;
+  height: 300px;
+  background-color: #f2fbf6;
+  border-radius: 10px;
+  border: 3px solid #b7becc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* font-family: "Readex Pro", sans-serif; */
+  /* text-align: center; */
+  /* font-weight: 500; */
+  /* justify-content: space-evenly; */
+/* }  */
+
+.stateItems {
+  min-width: 160px;
+    height: auto;
+    padding: 15px;
+    /* background-color: skyblue; */
+    border: 1px solid #d9d8d8;
+    border-radius: 8px;
+    /* display : flex;
+    justify-content : center;
+    align-items : center; */
+}
