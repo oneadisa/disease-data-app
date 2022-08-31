@@ -1,0 +1,4 @@
+export const ALL_CASES_REQUEST = "ALL_CASES_REQUEST";
+export const ALL_CASES_SUCCESS = "ALL_CASES_SUCCESS";
+export const ALL_CASES_FAIL = "ALL_CASES_FAIL";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
